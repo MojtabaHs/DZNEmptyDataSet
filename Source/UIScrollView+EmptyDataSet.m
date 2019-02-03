@@ -459,6 +459,11 @@ static char const * const kEmptyDataSetView =       "emptyDataSetView";
             else {
                 [self addSubview:view];
             }
+            
+            // make sure the y origin of view is 0. adding it to a scrollView may have changed it
+            CGRect frame = view.frame;
+            frame.origin.y = 0;
+            view.frame = frame;
         }
         
         // Removing view resetting the view and its constraints it very important to guarantee a good state
