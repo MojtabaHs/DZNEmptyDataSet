@@ -464,8 +464,7 @@ static char const * const kEmptyDataSetView =       "emptyDataSetView";
             CGRect frame = view.frame;
             if ([self isKindOfClass:[UIScrollView class]]) {
                 UIScrollView *scrollView = self;
-                CGFloat yOffset = scrollView.contentOffset.y;
-                frame.size.height = frame.size.height - -yOffset;
+                frame.size.height = frame.size.height - scrollView.contentInset.top;
             }
             frame.origin.y = 0;
             view.frame = frame;
